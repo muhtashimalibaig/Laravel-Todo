@@ -20,7 +20,7 @@
                         <x-icon name="home" class="h-4 w-4" />
                         Back to Home
                     </x-secondary>
-                    <x-button>
+                    <x-button href="/create-to-do">
                         <x-icon name="plus" class="h-4 w-4" />
                         Add A Task
                     </x-button>
@@ -28,87 +28,32 @@
             </header>
 
             <main class="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/30 backdrop-blur-xl">
-                <div class="flex items-center justify-between gap-4 mb-8">
+                <div class="flex flex-col gap-4 mb-8 md:flex-row md:items-center md:justify-between">
                     <div>
                         <p class="text-xs uppercase tracking-[0.35em] text-red-300">Task list</p>
                         <h2 class="mt-3 text-2xl font-semibold text-white">Your active tasks</h2>
                     </div>
-                    <span class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-red-600/15 text-red-400">
-                        <x-icon name="list-check" class="h-6 w-6" />
-                    </span>
-                </div>
 
-                <div class="space-y-4">
-                    <!-- Example task items - replace with dynamic content -->
-                    <div class="rounded-[1.75rem] border border-white/10 bg-[#090909] p-6 transition hover:border-red-500/20">
-                        <div class="flex items-center justify-between gap-4">
-                            <div class="flex items-center gap-4">
-                                <span class="inline-flex h-10 w-10 items-center justify-center rounded-3xl bg-red-600/15 text-red-400">
-                                    <x-icon name="check-circle" class="h-5 w-5" />
-                                </span>
-                                <div>
-                                    <p class="font-semibold text-white">Finish homepage redesign</p>
-                                    <p class="text-sm text-slate-400">Due today • High priority</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="edit" class="h-4 w-4" />
-                                </button>
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="trash-2" class="h-4 w-4" />
-                                </button>
-                            </div>
+                    <div class="flex items-center gap-4">
+                        <div class="relative w-full max-w-md">
+                            <label for="search" class="sr-only">Search tasks</label>
+                            <input id="search" type="search" placeholder="Search Tasks Title" class="w-full rounded-full border border-white/10 bg-[#090909] py-3 pl-12 pr-10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-red-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            </span>
+                            <button id="clearSearch" type="button" class="absolute inset-y-0 right-1 hidden items-center rounded-full px-3 text-sm text-slate-400 hover:text-red-400">Clear</button>
                         </div>
-                    </div>
 
-                    <div class="rounded-[1.75rem] border border-white/10 bg-[#090909] p-6 transition hover:border-red-500/20">
-                        <div class="flex items-center justify-between gap-4">
-                            <div class="flex items-center gap-4">
-                                <span class="inline-flex h-10 w-10 items-center justify-center rounded-3xl bg-slate-600/15 text-slate-400">
-                                    <x-icon name="circle" class="h-5 w-5" />
-                                </span>
-                                <div>
-                                    <p class="font-semibold text-white">Plan next sprint</p>
-                                    <p class="text-sm text-slate-400">Due tomorrow • Medium priority</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="edit" class="h-4 w-4" />
-                                </button>
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="trash-2" class="h-4 w-4" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rounded-[1.75rem] border border-white/10 bg-[#090909] p-6 transition hover:border-red-500/20">
-                        <div class="flex items-center justify-between gap-4">
-                            <div class="flex items-center gap-4">
-                                <span class="inline-flex h-10 w-10 items-center justify-center rounded-3xl bg-slate-600/15 text-slate-400">
-                                    <x-icon name="circle" class="h-5 w-5" />
-                                </span>
-                                <div>
-                                    <p class="font-semibold text-white">Review project documentation</p>
-                                    <p class="text-sm text-slate-400">Due in 3 days • Low priority</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="edit" class="h-4 w-4" />
-                                </button>
-                                <button class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-slate-400 transition hover:bg-red-600/15 hover:text-red-400">
-                                    <x-icon name="trash-2" class="h-4 w-4" />
-                                </button>
-                            </div>
-                        </div>
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-red-600/15 text-red-400">
+                            <x-icon name="list-check" class="h-6 w-6" />
+                        </span>
                     </div>
                 </div>
+
+                <div class="space-y-4" id="todoList"></div>
 
                 <div class="mt-8 text-center">
-                    <p class="text-sm text-slate-400">No more tasks? <a href="/create-to-do" class="text-red-400 hover:text-red-300 transition">Create a new one</a></p>
+                    <p class="text-sm text-slate-400">Add more tasks? <a href="/create-to-do" class="text-red-400 hover:text-red-300 transition">Create a new one</a></p>
                 </div>
             </main>
         </div>

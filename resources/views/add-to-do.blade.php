@@ -41,7 +41,7 @@
                                     <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-red-400">
                                         <span data-lucide="edit-3" class="h-5 w-5"></span>
                                     </span>
-                                    <input type="text" placeholder="Launch homepage redesign" class="w-full bg-transparent pl-12 text-sm text-white placeholder:text-slate-500 focus:outline-none" />
+                                    <input type="text" id="todoTitle" placeholder="Launch homepage redesign" class="w-full bg-transparent pl-12 text-sm text-white placeholder:text-slate-500 focus:outline-none" />
                                 </div>
                             </label>
 
@@ -51,7 +51,7 @@
                                     <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-red-400">
                                         <span data-lucide="calendar" class="h-5 w-5"></span>
                                     </span>
-                                    <input type="date" class="w-full bg-transparent pl-12 text-sm text-white focus:outline-none" />
+                                    <input type="date" id="todoDate" class="w-full bg-transparent pl-12 text-sm text-white focus:outline-none" />
                                 </div>
                             </label>
                         </div>
@@ -60,7 +60,7 @@
                             <label class="block">
                                 <span class="mb-2 block text-sm font-semibold text-slate-300">Priority</span>
                                 <div class="rounded-3xl border border-white/10 bg-[#090909] px-4 py-3">
-                                    <select class="w-full bg-[#090909]! text-sm text-white outline-none placeholder:text-slate-500">
+                                    <select id="todoBestOption" class="w-full bg-[#090909]! text-sm text-white outline-none placeholder:text-slate-500">
                                         <option>High</option>
                                         <option>Medium</option>
                                         <option>Low</option>
@@ -74,14 +74,14 @@
                                     <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-red-400">
                                         <span data-lucide="tag" class="h-5 w-5"></span>
                                     </span>
-                                    <input type="text" placeholder="Work, Personal" class="w-full bg-transparent pl-12 text-sm text-white placeholder:text-slate-500 focus:outline-none" />
+                                    <input type="text" id="todoCategory" placeholder="Work, Personal" class="w-full bg-transparent pl-12 text-sm text-white placeholder:text-slate-500 focus:outline-none" />
                                 </div>
                             </label>
                         </div>
 
                         <label class="block">
                             <span class="mb-2 block text-sm font-semibold text-slate-300">Task description</span>
-                            <textarea rows="5" placeholder="Add more context for your task..." class="w-full rounded-[1.5rem] border border-white/10 bg-[#090909] px-4 py-4 text-sm text-white placeholder:text-slate-500 focus:border-red-500/40 focus:outline-none"></textarea>
+                            <textarea id="todoDescription" rows="5" placeholder="Add more context for your task..." class="w-full rounded-[1.5rem] border border-white/10 bg-[#090909] px-4 py-4 text-sm text-white placeholder:text-slate-500 focus:border-red-500/40 focus:outline-none"></textarea>
                         </label>
 
                         <div>
@@ -95,10 +95,14 @@
                             </div>
                         </div>
                             <div class="flex flex-wrap gap-3">
-                                <x-button>
-                                    <span data-lucide="save" class="h-4 w-4"></span>
+                                {{-- <x-button type="submit" id="submit">
+                                    
+                                </x-button> --}}
+
+                                <button type="submit" id="submit" class="inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-2 cursor-pointer text-sm font-semibold text-white hover:bg-red-500">
+                                <span data-lucide="save" class="h-4 w-4"></span>
                                     Save task
-                                </x-button>
+                                </button>
                                 <button type="button" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-red-500/40 hover:bg-red-600/10">
                                     <span data-lucide="x" class="h-4 w-4"></span>
                                     Cancel
